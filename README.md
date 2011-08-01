@@ -33,6 +33,7 @@ end
 ```
 
 jgrid_filterable takes a number of options
+
 * `columns`:  Often times, the dataIndex used in an column model does not map 1:1 to a column name, or it may be in an entirely different table. This hash allows the mapping from dataIndex to sql selector.
 * `per_page`:  Sets the default per_page used by will_paginate and the plugin. If will_paginate is already set to use a certain number, uses that. If nothing is specified, defaults to 30.
 * `include`:  An array that contains the associations to load.
@@ -64,6 +65,7 @@ class MyClass < ActiveRecord::Base
 end  
 ```
 If the above example we are defining the following:
+
 * The `default_sort` will be alerted_at desc
 * When the alerted_at field is being filtered use the custom
   filter_alerted_at method to provide the logic. The method is passed in
