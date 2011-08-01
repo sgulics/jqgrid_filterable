@@ -44,11 +44,14 @@ Here is a more complext configuration:
 
 ```ruby
 class MyClass < ActiveRecord::Base
+
+  has_many accounts
   
   include jqgrid_filterable
 
   jqgrid_filterable({
     :default_sort=> "alerted_at desc",
+    :columns => { :account_name =>  "accounts.name" },
     :special_filters=> {
       :alerted_at=> filter_alerted_at,
       :contacts=> Proc.new do |conditions, values, value |
@@ -67,8 +70,10 @@ end
 If the above example we are defining the following:
 
 * The `default_sort` will be alerted_at desc
-* When the alerted_at field is being filtered use the custom
-  filter_alerted_at method to provide the logic. The method is passed in
+* The grid has a column called `account_name` and this column maps
+  to the `name` column in the `accounts` table.  
+* When the `alerted_at` field is being filtered use the custom
+  `filter_alerted_at` method to provide the logic. The method is passed in
   the current conditions and values array along with the value being
   filtered.
 * When contacts is being filtered use the block. In this silly example,
