@@ -27,7 +27,7 @@ ActiveRecord model
 ```ruby
 class User < ActiveRecord::Base
 
-  include jqgrid_filterable
+  include JqgridFilterable
 
 end
 ```
