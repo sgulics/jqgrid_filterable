@@ -55,7 +55,7 @@ module JqgridFilterable
     # that are set in the +jqgrid_filterable+ method
     def jqgrid_filter_and_sort_options(params={}, options={})
       raise ArgumentError, 'parameter hash expected' unless params.respond_to? :symbolize_keys
-      params.symbolize_keys! if params.respond_to :symbolize_keys!
+      params.symbolize_keys! if params.respond_to? :symbolize_keys!
       options = jqgrid_filterable_options.merge(options)
       
 
